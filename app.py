@@ -23,14 +23,8 @@ from papago import translate
 app = Flask(__name__)
 
 # get channel_secret and channel_access_token from your environment variable
-channel_secret = os.getenv('0c537bb765d08bd12c8f213655e50fb7', None)
-channel_access_token = os.getenv('Pe+d4QE6/6cr+eHAKjyZhuv81UsgYyhd41MTZirgM242zPOGrEGMDGHsLCjoZAlSfS6SJ5FFm5KoDgUAjx/JlwOy9g9YZVfG3CciB/jXF+bCQwoEubbG0bNP6rRnZRMWC5m300ZRaxlNbdR97ToxyQdB04t89/1O/w1cDnyilFU=', None)
-if channel_secret is None:
-    print('Specify LINE_CHANNEL_SECRET as environment variable.')
-    sys.exit(1)
-if channel_access_token is None:
-    print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
-    sys.exit(1)
+channel_secret = '0c537bb765d08bd12c8f213655e50fb7'
+channel_access_token = 'Pe+d4QE6/6cr+eHAKjyZhuv81UsgYyhd41MTZirgM242zPOGrEGMDGHsLCjoZAlSfS6SJ5FFm5KoDgUAjx/JlwOy9g9YZVfG3CciB/jXF+bCQwoEubbG0bNP6rRnZRMWC5m300ZRaxlNbdR97ToxyQdB04t89/1O/w1cDnyilFU='
 
 line_bot_api = LineBotApi(channel_access_token)
 parser = WebhookParser(channel_secret)
@@ -65,3 +59,14 @@ def callback():
         )
 
     return 'OK'
+
+
+if __name__ == "__main__":
+    arg_parser = ArgumentParser(
+        usage='Usage: python ' + __file__ + ' [--port <port>] [--help]'
+    )
+    arg_parser.add_argument('-p', '--port', default=8000, help='port')
+    arg_parser.add_argument('-d', '--debug', default=False, help='debug')
+    options = arg_parser.parse_args()
+
+    app.run(debug=options.debug, port=options.port)

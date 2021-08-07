@@ -25,5 +25,3 @@ def _translate(text, source='ja', target='ko'):
   json = response.json()
 
   return json['message']['result']['translatedText']
-
-print(translate("너무 오래구우면 탄다"))
