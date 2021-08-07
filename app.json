@@ -1,0 +1,26 @@
+{
+    "name": "line-papago-bot",
+    "description": "Line Papago Bot for automatic translation.",
+    "repository": "https://github.com/hunkim/line-papago-bot",
+    "logo": "",
+    "keywords": ["python", "line", "papago", "translation"],
+    "env": {
+      "LINE_CHANNEL_SECRET": {
+        "description": "A line channel secret from https://admin-official.line.me/.",
+        "required": true
+      },
+      "LINE_CHANNEL_ACCESS_TOKEN": {
+        "description": "A line channel access token from https://admin-official.line.me/.",
+        "required": true
+      },
+      "PAPAGO_CLIENT_ID": {
+        "description": "Client ID for Papago.",
+        "required": true
+      },
+      "PAPAGO_CLIENT_SECRET": {
+        "description": "Client secret for Papago.",
+        "required": true
+      }
+    }
+  }
+  
