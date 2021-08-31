@@ -1,1 +1,3 @@
-# 한국어 <-> 일본어 통역기 라인봇입니다.
+# Korean <-> Japanese Translator LineBot
+
+translator using papago api and python
